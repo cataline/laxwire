@@ -9,3 +9,4 @@ pids
 *.pid.lock
 coverage
 .env
+dist/
