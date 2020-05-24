@@ -1,0 +1,8 @@
+{
+  "name": "laxwire",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:cataline/laxwire.git",
+  "author": "Anastasia Kucherova <lacataline@gmail.com>",
+  "license": "MIT"
+}
