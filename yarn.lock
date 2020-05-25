@@ -5255,6 +5255,7 @@ fsevents@^2.1.2:
     jest: ^26.0.1
     prettier: ^2.0.5
     stylelint: ^13.5.0
+    telegraf: ^3.38.0
     tsc-watch: ^4.2.8
     typescript: ^3.9.3
   languageName: unknown
@@ -5733,6 +5734,13 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
+"module-alias@npm:^2.2.2":
+  version: 2.2.2
+  resolution: "module-alias@npm:2.2.2"
+  checksum: 3/1b37943df4fbe56799688eb3496f5113f7f1e18ff7a53bd3543e93fd4ee6c4b04e1548fc0cb49ae73e086b18ee712ab3321f6d7f5444cf413c638914decb8918
+  languageName: node
+  linkType: hard
+
 "ms@npm:2.0.0":
   version: 2.0.0
   resolution: "ms@npm:2.0.0"
@@ -5805,6 +5813,13 @@ fsevents@^2.1.2:
   version: 2.1.2
   resolution: "node-cleanup@npm:2.1.2"
   checksum: 3/696b6f832d6d32a21ac76a7198f57aae268580badff89aa0f7c3d8e2fdc10805b3c216d578644bd7bc8c2b97dccbf3103afddd00f7edb1176ff59f4538cf7b2e
+  languageName: node
+  linkType: hard
+
+"node-fetch@npm:^2.2.0":
+  version: 2.6.0
+  resolution: "node-fetch@npm:2.6.0"
+  checksum: 3/dd9f586a9f7ddb7dd94d2aba9cb693d32f5001e9850098512fbc8a4cbdd56838afa08ed0a6725b9fce9b01ec12b713e622cbfc16d92762d8b937b238330a632a
   languageName: node
   linkType: hard
 
@@ -7225,6 +7240,13 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
+"sandwich-stream@npm:^2.0.1":
+  version: 2.0.2
+  resolution: "sandwich-stream@npm:2.0.2"
+  checksum: 3/f88483282e71e6d887119d8726fdaee56914fcab9df99d4777de650188fb823df314237eb6d2938b3e93d04054a047e2f774c8667014e8f4582b086d0c060ce9
+  languageName: node
+  linkType: hard
+
 "sane@npm:^4.0.3":
   version: 4.1.0
   resolution: "sane@npm:4.1.0"
@@ -8021,6 +8043,29 @@ fsevents@^2.1.2:
     safe-buffer: ^5.1.2
     yallist: ^3.0.3
   checksum: 3/d325c316ac329ecb18f2b8cd3f85a80ab4a4105ada601b9253aaafae3fc14268e3cd874ccc265b6a08e60ebd17fbc31bd3dbc0d1018f874b536eb2a6e8ef6d9c
+  languageName: node
+  linkType: hard
+
+"telegraf@npm:^3.38.0":
+  version: 3.38.0
+  resolution: "telegraf@npm:3.38.0"
+  dependencies:
+    debug: ^4.0.1
+    minimist: ^1.2.0
+    module-alias: ^2.2.2
+    node-fetch: ^2.2.0
+    sandwich-stream: ^2.0.1
+    telegram-typings: ^3.6.0
+  bin:
+    telegraf: ./bin/telegraf
+  checksum: 3/468e16ba3124b333363ce6019d64a35c1c75caa777df8b2466e018089bbcd2926888ef87abdf232bdd1c15d14b9e568259fdf1749fdff8cf4a9ed22cae707082
+  languageName: node
+  linkType: hard
+
+"telegram-typings@npm:^3.6.0":
+  version: 3.6.1
+  resolution: "telegram-typings@npm:3.6.1"
+  checksum: 3/a2aa1190f826e45228a3b08c7d51718abd7c374b8ad0f79f5ebc6bd0fe4e0da7f8e7f1432b52e351df89d31d6d7384a71636c98432b5458b36b8f3fa0ea76721
   languageName: node
   linkType: hard
 

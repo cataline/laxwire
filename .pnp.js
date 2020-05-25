@@ -82,6 +82,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:13.5.0"
       ],
       [
+        "telegraf",
+        "npm:3.38.0"
+      ],
+      [
         "tsc-watch",
         "virtual:2cc0e3472e608e45ffa966db18047f66106b8733bd5e144a8be9549702733b5de13dcbf8a00394fe72b79f5f719158cb19dcb4319c545ea5bff708a2bc8af675#npm:4.2.8"
       ],
@@ -110,6 +114,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "npm:26.0.1"],
             ["prettier", "npm:2.0.5"],
             ["stylelint", "npm:13.5.0"],
+            ["telegraf", "npm:3.38.0"],
             ["tsc-watch", "virtual:2cc0e3472e608e45ffa966db18047f66106b8733bd5e144a8be9549702733b5de13dcbf8a00394fe72b79f5f719158cb19dcb4319c545ea5bff708a2bc8af675#npm:4.2.8"],
             ["typescript", "patch:typescript@npm%3A3.9.3#builtin<compat/typescript>::version=3.9.3&hash=8cac75"]
           ],
@@ -6026,6 +6031,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "npm:26.0.1"],
             ["prettier", "npm:2.0.5"],
             ["stylelint", "npm:13.5.0"],
+            ["telegraf", "npm:3.38.0"],
             ["tsc-watch", "virtual:2cc0e3472e608e45ffa966db18047f66106b8733bd5e144a8be9549702733b5de13dcbf8a00394fe72b79f5f719158cb19dcb4319c545ea5bff708a2bc8af675#npm:4.2.8"],
             ["typescript", "patch:typescript@npm%3A3.9.3#builtin<compat/typescript>::version=3.9.3&hash=8cac75"]
           ],
@@ -6575,6 +6581,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["module-alias", [
+        ["npm:2.2.2", {
+          "packageLocation": "./.yarn/cache/module-alias-npm-2.2.2-576bd37c03-3.zip/node_modules/module-alias/",
+          "packageDependencies": [
+            ["module-alias", "npm:2.2.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["ms", [
         ["npm:2.0.0", {
           "packageLocation": "./.yarn/cache/ms-npm-2.0.0-9e1101a471-3.zip/node_modules/ms/",
@@ -6659,6 +6674,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/node-cleanup-npm-2.1.2-adfbc95778-3.zip/node_modules/node-cleanup/",
           "packageDependencies": [
             ["node-cleanup", "npm:2.1.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["node-fetch", [
+        ["npm:2.6.0", {
+          "packageLocation": "./.yarn/cache/node-fetch-npm-2.6.0-29c7a53447-3.zip/node_modules/node-fetch/",
+          "packageDependencies": [
+            ["node-fetch", "npm:2.6.0"]
           ],
           "linkType": "HARD",
         }]
@@ -8268,6 +8292,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["sandwich-stream", [
+        ["npm:2.0.2", {
+          "packageLocation": "./.yarn/cache/sandwich-stream-npm-2.0.2-76bdc6c560-3.zip/node_modules/sandwich-stream/",
+          "packageDependencies": [
+            ["sandwich-stream", "npm:2.0.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["sane", [
         ["npm:4.1.0", {
           "packageLocation": "./.yarn/cache/sane-npm-4.1.0-8ab7d6a963-3.zip/node_modules/sane/",
@@ -9130,6 +9163,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mkdirp", "npm:0.5.5"],
             ["safe-buffer", "npm:5.1.2"],
             ["yallist", "npm:3.1.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["telegraf", [
+        ["npm:3.38.0", {
+          "packageLocation": "./.yarn/cache/telegraf-npm-3.38.0-9b2f9198e3-3.zip/node_modules/telegraf/",
+          "packageDependencies": [
+            ["telegraf", "npm:3.38.0"],
+            ["debug", "virtual:335909a6b9e2c4585dc6cb52ce32d22ed4bd95092fc7b45f54d3a532f4afdf22fdb5fd66f24bbeecbff61f93a5f532cab84cbebfd384b3bd1e7c71f5a7026d38#npm:4.2.0"],
+            ["minimist", "npm:1.2.5"],
+            ["module-alias", "npm:2.2.2"],
+            ["node-fetch", "npm:2.6.0"],
+            ["sandwich-stream", "npm:2.0.2"],
+            ["telegram-typings", "npm:3.6.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["telegram-typings", [
+        ["npm:3.6.1", {
+          "packageLocation": "./.yarn/cache/telegram-typings-npm-3.6.1-141417fc65-3.zip/node_modules/telegram-typings/",
+          "packageDependencies": [
+            ["telegram-typings", "npm:3.6.1"]
           ],
           "linkType": "HARD",
         }]

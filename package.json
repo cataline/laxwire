@@ -27,6 +27,7 @@
     "@slack/bolt": "^2.1.1",
     "@yarnpkg/pnpify": "^2.0.0-rc.22",
     "dotenv": "^8.2.0",
+    "telegraf": "^3.38.0",
     "typescript": "^3.9.3"
   },
   "devDependencies": {
