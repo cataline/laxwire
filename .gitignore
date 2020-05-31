@@ -10,3 +10,4 @@ pids
 coverage
 .env
 dist/
+serviceAccountKey.json
