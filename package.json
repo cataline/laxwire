@@ -50,6 +50,9 @@
     "tsc-watch": "^4.2.8"
   },
   "dependenciesMeta": {
+    "@google-cloud/firestore": {
+      "unplugged": true
+    },
     "@slack/bolt": {
       "unplugged": true
     },
@@ -57,6 +60,9 @@
       "unplugged": true
     },
     "@slack/types": {
+      "unplugged": true
+    },
+    "@slack/web-api": {
       "unplugged": true
     },
     "firebase-admin": {

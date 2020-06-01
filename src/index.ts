@@ -1,9 +1,11 @@
 import * as dotenv from "dotenv";
 dotenv.config();
 
-import Store from "./db/store";
-import SlackBot from "./slack";
+import "./db/store";
+
 import appLogger from "./utils/logger";
+import slackBot from "./slack/bot";
+import botManager from "./db/bot";
 
 process.on("unhandledRejection", (error) => {
   appLogger.fatal({ msg: "Unhandled rejection", error });
@@ -22,7 +24,6 @@ process.on("SIGINT", () => {
 
 (async () => {
   const {
-    PORT: port,
     PUBLIC_URL: url,
     SLACK_BOT_TOKEN: token,
     SLACK_SIGNING_SECRET: signingSecret,
@@ -32,8 +33,6 @@ process.on("SIGINT", () => {
   if (!token) throw new Error("SLACK_BOT_TOKEN should be set");
   if (!signingSecret) throw new Error("SLACK_SIGNING_SECRET should be set");
 
-  const store = new Store();
-  const slack = new SlackBot({ store, url, token, signingSecret, port });
-
-  await slack.start();
+  await botManager.reload();
+  await slackBot.start();
 })();

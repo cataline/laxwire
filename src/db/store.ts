@@ -1,28 +1,19 @@
-import {
-  auth,
-  credential,
+import { auth, credential, initializeApp, firestore } from "firebase-admin";
+
+const { GOOGLE_APPLICATION_URL } = process.env;
+
+if (!GOOGLE_APPLICATION_URL) throw new Error("GOOGLE_APPLICATION_URL not set");
+
+const app = initializeApp({
+  credential: credential.applicationDefault(),
+  databaseURL: this.url,
+});
+
+const store = {
+  url: process.env.GOOGLE_APPLICATION_URL,
+  db: firestore(),
+  auth: auth(),
   app,
-  initializeApp,
-  firestore,
-} from "firebase-admin";
+};
 
-export default class Store {
-  url: string;
-  db: firestore.Firestore;
-  auth: auth.Auth;
-  app: app.App;
-
-  constructor() {
-    this.url = process.env.GOOGLE_APPLICATION_URL as string;
-
-    this.app = initializeApp({
-      credential: credential.applicationDefault(),
-      databaseURL: this.url,
-    });
-
-    this.db = firestore();
-    this.auth = auth();
-  }
-
-  async linkBots() {}
-}
+export default store;

@@ -654,7 +654,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["@google-cloud/firestore", [
         ["npm:3.8.2", {
-          "packageLocation": "./.yarn/cache/@google-cloud-firestore-npm-3.8.2-40c58cdf81-3.zip/node_modules/@google-cloud/firestore/",
+          "packageLocation": "./.yarn/unplugged/@google-cloud-firestore-npm-3.8.2-40c58cdf81/node_modules/@google-cloud/firestore/",
           "packageDependencies": [
             ["@google-cloud/firestore", "npm:3.8.2"],
             ["deep-equal", "npm:2.0.3"],
@@ -1188,7 +1188,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["@slack/web-api", [
         ["npm:5.9.0", {
-          "packageLocation": "./.yarn/cache/@slack-web-api-npm-5.9.0-f95509f26f-3.zip/node_modules/@slack/web-api/",
+          "packageLocation": "./.yarn/unplugged/@slack-web-api-npm-5.9.0-f95509f26f/node_modules/@slack/web-api/",
           "packageDependencies": [
             ["@slack/web-api", "npm:5.9.0"],
             ["@slack/logger", "npm:2.0.0"],

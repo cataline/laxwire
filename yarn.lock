@@ -6183,11 +6183,15 @@ fsevents@^2.1.2:
     tsc-watch: ^4.2.8
     typescript: ^3.9.3
   dependenciesMeta:
+    "@google-cloud/firestore":
+      unplugged: true
     "@slack/bolt":
       unplugged: true
     "@slack/logger":
       unplugged: true
     "@slack/types":
+      unplugged: true
+    "@slack/web-api":
       unplugged: true
     firebase-admin:
       unplugged: true
