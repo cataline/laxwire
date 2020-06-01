@@ -11,3 +11,8 @@ coverage
 .env
 dist/
 serviceAccountKey.json
+.yarn/*
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
+!.yarn/versions
