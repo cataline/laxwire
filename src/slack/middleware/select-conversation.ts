@@ -1,10 +1,11 @@
-import appLogger from "../../utils/logger";
-import botManager from "../../db/bot";
 import {
   SlackActionMiddlewareArgs,
   BlockConversationsSelectAction,
   Middleware,
 } from "@slack/bolt";
+
+import botManager from "../../db/bot";
+import appLogger from "../../utils/logger";
 
 const logger = appLogger.child({ name: "slack" });
 

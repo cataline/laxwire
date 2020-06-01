@@ -1,9 +1,9 @@
 import { firestore } from "firebase-admin";
 
+import TelegramBot from "../telegram/bot";
 import appLogger from "../utils/logger";
 import { DoesNotExist } from "./errors";
 import store from "./store";
-import TelegramBot from "../telegram/bot";
 
 type CollectionReference<D> = firestore.CollectionReference<D>;
 

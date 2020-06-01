@@ -1,10 +1,11 @@
 import { Telegraf } from "telegraf";
 import { TelegrafContext } from "telegraf/typings/context";
+
+import botManager, { BotRecord } from "../db/bot";
+import slackBot from "../slack/bot";
 import { Message, Chat } from "../types";
 import appLogger from "../utils/logger";
 import { linkToSlack, unlinkFromSlack } from "./middleware/link-to-slack";
-import botManager, { BotRecord } from "../db/bot";
-import slackBot from "../slack/bot";
 
 type Conversation = { id: string; name: string };
 

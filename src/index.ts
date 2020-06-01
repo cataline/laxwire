@@ -3,9 +3,9 @@ dotenv.config();
 
 import "./db/store";
 
-import appLogger from "./utils/logger";
-import slackBot from "./slack/bot";
 import botManager from "./db/bot";
+import slackBot from "./slack/bot";
+import appLogger from "./utils/logger";
 
 process.on("unhandledRejection", (error) => {
   appLogger.fatal({ msg: "Unhandled rejection", error });

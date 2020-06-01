@@ -1,7 +1,8 @@
-import { TelegrafContext } from "telegraf/typings/context";
 import { Middleware } from "telegraf";
-import appLogger from "../../utils/logger";
+import { TelegrafContext } from "telegraf/typings/context";
+
 import botManager from "../../db/bot";
+import appLogger from "../../utils/logger";
 
 const logger = appLogger.child({ name: "telegram" });
 

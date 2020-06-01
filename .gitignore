@@ -16,3 +16,4 @@ serviceAccountKey.json
 !.yarn/releases
 !.yarn/plugins
 !.yarn/versions
+.cache

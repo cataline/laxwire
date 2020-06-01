@@ -1,11 +1,12 @@
-import appLogger from "../../utils/logger";
-import { CONVERSATION_SELECT } from "./select-conversation";
-import botManager from "../../db/bot";
 import {
   ViewSubmitAction,
   Middleware,
   SlackViewMiddlewareArgs,
 } from "@slack/bolt";
+
+import botManager from "../../db/bot";
+import appLogger from "../../utils/logger";
+import { CONVERSATION_SELECT } from "./select-conversation";
 
 const logger = appLogger.child({ name: "slack" });
 
