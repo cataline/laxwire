@@ -8897,7 +8897,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["protobufjs", [
         ["npm:6.9.0", {
-          "packageLocation": "./.yarn/unplugged/protobufjs-npm-6.9.0-569bc719a2/node_modules/protobufjs/",
+          "packageLocation": "./.yarn/cache/protobufjs-npm-6.9.0-569bc719a2-3.zip/node_modules/protobufjs/",
           "packageDependencies": [
             ["protobufjs", "npm:6.9.0"],
             ["@protobufjs/aspromise", "npm:1.1.2"],
