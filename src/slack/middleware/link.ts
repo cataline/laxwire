@@ -71,8 +71,7 @@ export const unlink: Middleware<SlackCommandMiddlewareArgs> = async ({
   await ack();
 
   try {
-    const record = await botManager.unlink({ slackChannelId });
-    await botManager.stop(record.telegramToken);
+    await botManager.unlink({ slackChannelId });
     await respond({
       text: `Unlinked from #${channel}. No more peepin'.`,
     });

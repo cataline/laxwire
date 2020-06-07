@@ -19,7 +19,7 @@ export function link(telegramToken: string): Middleware<TelegrafContext> {
     }
 
     try {
-      const record = await botManager.get(telegramToken);
+      const record = await botManager.getByTelegramToken(telegramToken);
       await botManager.update(record, { telegramChatId: `${chat.id}` });
       const bot = await botManager.start(record.telegramToken);
       const channel = await bot.getSlackChannel();
@@ -59,7 +59,7 @@ export function unlink(telegramToken: string): Middleware<TelegrafContext> {
     }
 
     try {
-      const record = await botManager.get(telegramToken);
+      const record = await botManager.getByTelegramToken(telegramToken);
       await botManager.update(record, {
         telegramChatId: null,
         isLinked: false,

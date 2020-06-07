@@ -56,7 +56,7 @@ export default class TelegramBot {
 
   async getRecord(): Promise<BotRecord> {
     const { token } = this;
-    return botManager.get(token);
+    return botManager.getByTelegramToken(token);
   }
 
   async getSlackChannel(): Promise<SlackChannel> {

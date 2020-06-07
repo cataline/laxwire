@@ -18,7 +18,10 @@ const botManager = {
     return (await collection.doc(telegramToken).get()).exists;
   },
 
-  async get(telegramToken: string, strict = true): Promise<BotRecord> {
+  async getByTelegramToken(
+    telegramToken: string,
+    strict = true
+  ): Promise<BotRecord> {
     const { collection } = this;
 
     const doc = await collection.doc(telegramToken).get();
@@ -30,6 +33,25 @@ const botManager = {
     }
 
     return doc.data() as BotRecord;
+  },
+
+  async getBySlackChannelId(
+    slackChannelId: string,
+    strict = true
+  ): Promise<BotRecord> {
+    const existing = await this.filter([
+      "slackChannelId",
+      "==",
+      slackChannelId,
+    ]);
+
+    if (!existing?.[0] && strict) {
+      throw new DoesNotExist(
+        `Bot with slack channel id ${slackChannelId} does not exist`
+      );
+    }
+
+    return existing[0];
   },
 
   async filter(...args: FilterArgs[]): Promise<BotRecord[]> {
@@ -88,7 +110,7 @@ const botManager = {
   ): Promise<BotRecord> {
     const { telegramToken } = params;
     const payload = { ...params, isLinked: true, telegramChatId: null };
-    const existing = await this.get(telegramToken, false);
+    const existing = await this.getByTelegramToken(telegramToken, false);
 
     const record = await (existing
       ? this.update(existing, payload)
@@ -100,25 +122,12 @@ const botManager = {
   async unlink(
     params: Pick<BotParams, "telegramToken"> | Pick<BotParams, "slackChannelId">
   ): Promise<BotRecord> {
-    const delta = { isLinked: false };
-
-    if ("telegramToken" in params) {
-      return this.update(await this.get(params.telegramToken), delta);
-    }
-
-    const existing = await this.filter([
-      "slackChannelId",
-      "==",
-      params.slackChannelId,
-    ]);
-
-    if (!existing?.[0]) {
-      throw new DoesNotExist(
-        `Bot with slack channel id ${params.slackChannelId} does not exist`
-      );
-    }
-
-    return this.update(existing[0], params);
+    return this.update(
+      await ("telegramToken" in params
+        ? this.getByTelegramToken(params.telegramToken)
+        : this.getBySlackChannelId(params.slackChannelId)),
+      { isLinked: false }
+    );
   },
 
   async start(telegramToken: string): Promise<TelegramBot> {

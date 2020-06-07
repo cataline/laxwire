@@ -4,6 +4,7 @@ import { BotRecord } from "../db/bot-manager";
 import { Message } from "../types";
 import SlackChannel from "./channel";
 import { link, unlink } from "./middleware/link";
+import { message } from "./middleware/message";
 
 const { SLACK_BOT_TOKEN, SLACK_SIGNING_SECRET, PORT } = process.env;
 
@@ -18,6 +19,7 @@ const slackBot = {
     const { bot } = this;
     bot.command("/link_telegram_bot", link);
     bot.command("/unlink_telegram_bot", unlink);
+    bot.message(message);
     await bot.start(PORT);
   },
 
@@ -43,8 +45,6 @@ const slackBot = {
       token: SLACK_BOT_TOKEN,
       channel: record.slackChannelId,
     });
-
-    console.log(result);
 
     return new SlackChannel(result.channel);
   },
