@@ -1,11 +1,12 @@
-import { Telegraf } from "telegraf";
+import { Telegraf, Telegram } from "telegraf";
 import { TelegrafContext } from "telegraf/typings/context";
 
-import botManager, { BotRecord } from "../db/bot";
+import botManager, { BotRecord } from "../db/bot-manager";
 import slackBot from "../slack/bot";
+import SlackChannel from "../slack/channel";
 import { Message, Chat } from "../types";
 import appLogger from "../utils/logger";
-import { linkToSlack, unlinkFromSlack } from "./middleware/link-to-slack";
+import { link, unlink } from "./middleware/link";
 
 type Conversation = { id: string; name: string };
 
@@ -17,29 +18,36 @@ export default class TelegramBot {
 
   isRunning = false;
 
+  slackChannel: SlackChannel | null;
+
   constructor(token: string) {
     this.bot = new Telegraf(token);
     this.token = token;
     this.logger = appLogger.child({ name: "telegram", token });
+
+    this.slackChannel = null;
+  }
+
+  get telegram(): Telegram {
+    return this.bot.telegram;
   }
 
   async start(): Promise<void> {
     const { bot, token } = this;
-    const record = await this.getRecord();
 
     bot.command("hello", Telegraf.reply("λ"));
-    bot.start(linkToSlack(token));
-    bot.command("stop", unlinkFromSlack(token));
+    bot.start(link(token));
+    bot.command("stop", unlink(token));
 
-    bot.on("message", ({ message }) => {
-      const { slackChannel } = record;
-
+    bot.on("message", async ({ message }) => {
       if (!message) return;
+
       const { text = "", from: author } = message;
 
       this.logger.debug({ author });
 
-      slackBot.post({ id: slackChannel }, { text });
+      const channel = await this.getSlackChannel();
+      slackBot.post(channel, { text });
     });
 
     await bot.launch();
@@ -48,7 +56,15 @@ export default class TelegramBot {
 
   async getRecord(): Promise<BotRecord> {
     const { token } = this;
-    return botManager.findByTelegramToken(token);
+    return botManager.get(token);
+  }
+
+  async getSlackChannel(): Promise<SlackChannel> {
+    if (!this.slackChannel) {
+      this.slackChannel = await slackBot.getChannel(await this.getRecord());
+    }
+
+    return this.slackChannel as SlackChannel;
   }
 
   async stop(): Promise<void> {

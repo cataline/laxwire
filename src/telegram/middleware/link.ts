@@ -1,14 +1,13 @@
 import { Middleware } from "telegraf";
 import { TelegrafContext } from "telegraf/typings/context";
 
-import botManager from "../../db/bot";
+import botManager from "../../db/bot-manager";
+import slackBot from "../../slack/bot";
 import appLogger from "../../utils/logger";
 
 const logger = appLogger.child({ name: "telegram" });
 
-export function linkToSlack(
-  telegramToken: string
-): Middleware<TelegrafContext> {
+export function link(telegramToken: string): Middleware<TelegrafContext> {
   return async (
     { chat, reply, message }: TelegrafContext,
     next: () => Promise<void>
@@ -20,18 +19,20 @@ export function linkToSlack(
     }
 
     try {
-      const record = await botManager.findByTelegramToken(telegramToken);
-      const updated = await botManager.update(record.slackToken, {
-        telegramChatId: `${chat.id}`,
-        isLinked: true,
-      });
-
-      await botManager.start(telegramToken);
+      const record = await botManager.get(telegramToken);
+      await botManager.update(record, { telegramChatId: `${chat.id}` });
+      const bot = await botManager.start(record.telegramToken);
+      const channel = await bot.getSlackChannel();
+      const { username } = await bot.telegram.getMe();
 
       await reply(
-        `Integrated chat #${chat.id} with Slack channel #${updated.slackChannel}.`,
+        `#${channel.name} has been linked! You can start worrying about your privacy now ( ͡° ͜ʖ ͡°) `,
         { reply_to_message_id: message?.message_id }
       );
+
+      slackBot.post(channel, {
+        text: `We asked and Telegram answered. #${channel.name} and @${username} are now one. Rejoice!`,
+      });
     } catch (e) {
       logger.error(e);
 
@@ -45,9 +46,7 @@ export function linkToSlack(
   };
 }
 
-export function unlinkFromSlack(
-  telegramToken: string
-): Middleware<TelegrafContext> {
+export function unlink(telegramToken: string): Middleware<TelegrafContext> {
   return async (
     { chat, reply, message }: TelegrafContext,
     next: () => Promise<void>
@@ -60,9 +59,8 @@ export function unlinkFromSlack(
     }
 
     try {
-      const record = await botManager.findByTelegramToken(telegramToken);
-      await botManager.update(record.slackToken, {
-        telegramToken: null,
+      const record = await botManager.get(telegramToken);
+      await botManager.update(record, {
         telegramChatId: null,
         isLinked: false,
       });

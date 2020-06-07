@@ -1,15 +1,9 @@
 import { App, LogLevel } from "@slack/bolt";
 
-import { Chat, Message } from "../types";
-import {
-  selectConversation,
-  CONVERSATION_SELECT,
-} from "./middleware/select-conversation";
-import {
-  openTokenModal,
-  submitTokenModal,
-  TOKEN_MODAL,
-} from "./middleware/token-modal";
+import { BotRecord } from "../db/bot-manager";
+import { Message } from "../types";
+import SlackChannel from "./channel";
+import { link, unlink } from "./middleware/link";
 
 const { SLACK_BOT_TOKEN, SLACK_SIGNING_SECRET, PORT } = process.env;
 
@@ -22,15 +16,12 @@ const slackBot = {
 
   async start(): Promise<void> {
     const { bot } = this;
-
-    bot.shortcut("link_global", openTokenModal);
-    bot.action(CONVERSATION_SELECT.accessory["action_id"], selectConversation);
-    bot.view(TOKEN_MODAL["callback_id"], submitTokenModal);
-
+    bot.command("/link_telegram_bot", link);
+    bot.command("/unlink_telegram_bot", unlink);
     await bot.start(PORT);
   },
 
-  async post(channel: Chat, { text }: Message): Promise<void> {
+  async post(channel: SlackChannel, { text }: Message): Promise<void> {
     const {
       bot: { client },
     } = this;
@@ -41,6 +32,21 @@ const slackBot = {
       channel: channel.id,
       as_user: true,
     });
+  },
+
+  async getChannel(record: BotRecord): Promise<SlackChannel> {
+    const {
+      bot: { client },
+    } = this;
+
+    const result: any = await client.conversations.info({
+      token: SLACK_BOT_TOKEN,
+      channel: record.slackChannelId,
+    });
+
+    console.log(result);
+
+    return new SlackChannel(result.channel);
   },
 };
 

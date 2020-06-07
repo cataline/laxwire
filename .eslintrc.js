@@ -22,6 +22,8 @@ module.exports = {
   ],
   plugins: ["@typescript-eslint", "import", "prettier", "jest"],
   rules: {
+    "no-useless-concat": "error",
+    "prefer-template": "error",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
     "import/order": [

@@ -3,7 +3,7 @@ dotenv.config();
 
 import "./db/store";
 
-import botManager from "./db/bot";
+import botManager from "./db/bot-manager";
 import slackBot from "./slack/bot";
 import appLogger from "./utils/logger";
 

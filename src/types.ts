@@ -4,5 +4,4 @@ export interface Message {
 
 export interface Chat {
   id: any;
-  title?: string;
 }
