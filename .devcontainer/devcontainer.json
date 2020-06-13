@@ -5,7 +5,7 @@
 	// Sets the run context to one level up instead of the .devcontainer folder.
 	"context": "..",
 	// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
-	"dockerFile": "../Dockerfile",
+	"dockerFile": "../Dockerfile.development",
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
 		"terminal.integrated.shell.linux": null
@@ -13,8 +13,9 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [
-		4390
+	// "forwardPorts": [],
+	"appPort": [
+		"4390:4390"
 	],
 	// Uncomment the next line to run commands after the container is created - for example installing curl.
 	"postCreateCommand": "apk add --update git",

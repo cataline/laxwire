@@ -33,6 +33,5 @@ process.on("SIGINT", () => {
   if (!token) throw new Error("SLACK_BOT_TOKEN should be set");
   if (!signingSecret) throw new Error("SLACK_SIGNING_SECRET should be set");
 
-  await botManager.reload();
-  await slackBot.start();
+  await Promise.all([slackBot.start(), botManager.reload()])
 })();

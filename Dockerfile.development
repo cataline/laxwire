@@ -4,6 +4,8 @@ WORKDIR /opt/laxwire
 
 COPY . .
 
+EXPOSE 4390
+
 RUN yarn --immutable
 RUN yarn build
 

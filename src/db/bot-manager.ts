@@ -100,9 +100,9 @@ const botManager = {
       instances.set(token, new TelegramBot(token));
     }
 
-    logger.info("reloaded active bot instances");
-
     await Promise.all([...instances.keys()].map((token) => this.start(token)));
+
+    logger.info("reloaded active bot instances");
   },
 
   async link(
