@@ -4,7 +4,7 @@ WORKDIR /opt/laxwire
 
 COPY . .
 
-RUN yarn --frozen-lockfile --production
+RUN yarn --immutable
 RUN yarn build
 
 ENTRYPOINT [ "yarn", "start" ]
