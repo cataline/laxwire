@@ -2,12 +2,12 @@ import { App, LogLevel } from "@slack/bolt";
 
 import { BotRecord } from "../db/bot-manager";
 import { Message } from "../types";
+import appLogger from "../utils/logger";
 import SlackChannel from "./channel";
 import { link, unlink } from "./middleware/link";
 import { message } from "./middleware/message";
-import appLogger from "../utils/logger";
 
-const logger = appLogger.child({ name: 'slack' })
+const logger = appLogger.child({ name: "slack" });
 
 const { SLACK_BOT_TOKEN, SLACK_SIGNING_SECRET, PORT } = process.env;
 
@@ -17,9 +17,15 @@ const slackBot = {
     signingSecret: SLACK_SIGNING_SECRET,
     logLevel: "debug" as LogLevel.DEBUG,
     logger: {
-      setLevel() { },
-      setName() { },
-      getLevel() { return 'debug' as LogLevel.DEBUG },
+      setLevel() {
+        //
+      },
+      setName() {
+        //
+      },
+      getLevel() {
+        return "debug" as LogLevel.DEBUG;
+      },
       debug(args) {
         logger.debug({ msg: args });
       },
@@ -31,8 +37,8 @@ const slackBot = {
       },
       info(args) {
         logger.info({ msg: args });
-      }
-    }
+      },
+    },
   }),
 
   async start(): Promise<void> {
@@ -41,7 +47,7 @@ const slackBot = {
     bot.command("/unlink_telegram_bot", unlink);
     bot.message(message);
     await bot.start(PORT);
-    logger.info('started bot')
+    logger.info("started bot");
   },
 
   async post(channel: SlackChannel, { text }: Message): Promise<void> {
