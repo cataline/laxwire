@@ -4,7 +4,8 @@ WORKDIR /opt/laxwire
 
 COPY . .
 
+RUN apk add --no-cache git
 RUN yarn --immutable
 RUN yarn build
 
-ENTRYPOINT [ "yarn", "start" ]
+CMD [ "yarn", "start" ]
