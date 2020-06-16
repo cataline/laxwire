@@ -38,6 +38,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:2.1.1"
       ],
       [
+        "@types/jest",
+        "npm:26.0.0"
+      ],
+      [
         "@types/node",
         "npm:14.0.11"
       ],
@@ -139,6 +143,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@google-cloud/firestore", "npm:3.8.4"],
             ["@slack/bolt", "npm:2.1.1"],
+            ["@types/jest", "npm:26.0.0"],
             ["@types/node", "npm:14.0.11"],
             ["@types/pino", "npm:6.0.1"],
             ["@typescript-eslint/eslint-plugin", "virtual:2cc0e3472e608e45ffa966db18047f66106b8733bd5e144a8be9549702733b5de13dcbf8a00394fe72b79f5f719158cb19dcb4319c545ea5bff708a2bc8af675#npm:3.1.0"],
@@ -993,6 +998,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@jest/types", [
+        ["npm:25.5.0", {
+          "packageLocation": "./.yarn/cache/@jest-types-npm-25.5.0-45f0640591-3.zip/node_modules/@jest/types/",
+          "packageDependencies": [
+            ["@jest/types", "npm:25.5.0"],
+            ["@types/istanbul-lib-coverage", "npm:2.0.2"],
+            ["@types/istanbul-reports", "npm:1.1.2"],
+            ["@types/yargs", "npm:15.0.5"],
+            ["chalk", "npm:3.0.0"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:26.0.1", {
           "packageLocation": "./.yarn/cache/@jest-types-npm-26.0.1-3ea6251164-3.zip/node_modules/@jest/types/",
           "packageDependencies": [
@@ -1502,6 +1518,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/istanbul-reports", "npm:1.1.2"],
             ["@types/istanbul-lib-coverage", "npm:2.0.2"],
             ["@types/istanbul-lib-report", "npm:3.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/jest", [
+        ["npm:26.0.0", {
+          "packageLocation": "./.yarn/cache/@types-jest-npm-26.0.0-a39c948073-3.zip/node_modules/@types/jest/",
+          "packageDependencies": [
+            ["@types/jest", "npm:26.0.0"],
+            ["jest-diff", "npm:25.5.0"],
+            ["pretty-format", "npm:25.5.0"]
           ],
           "linkType": "HARD",
         }]
@@ -3739,6 +3766,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["diff-sequences", [
+        ["npm:25.2.6", {
+          "packageLocation": "./.yarn/cache/diff-sequences-npm-25.2.6-d72e0e66bc-3.zip/node_modules/diff-sequences/",
+          "packageDependencies": [
+            ["diff-sequences", "npm:25.2.6"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:26.0.0", {
           "packageLocation": "./.yarn/cache/diff-sequences-npm-26.0.0-4b8f552043-3.zip/node_modules/diff-sequences/",
           "packageDependencies": [
@@ -5693,7 +5727,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["husky", [
         ["npm:4.2.5", {
-          "packageLocation": "./.yarn/cache/husky-npm-4.2.5-30d80a2ef8-3.zip/node_modules/husky/",
+          "packageLocation": "./.yarn/unplugged/husky-npm-4.2.5-30d80a2ef8/node_modules/husky/",
           "packageDependencies": [
             ["husky", "npm:4.2.5"],
             ["chalk", "npm:4.0.0"],
@@ -6593,6 +6627,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["jest-diff", [
+        ["npm:25.5.0", {
+          "packageLocation": "./.yarn/cache/jest-diff-npm-25.5.0-dfbc320001-3.zip/node_modules/jest-diff/",
+          "packageDependencies": [
+            ["jest-diff", "npm:25.5.0"],
+            ["chalk", "npm:3.0.0"],
+            ["diff-sequences", "npm:25.2.6"],
+            ["jest-get-type", "npm:25.2.6"],
+            ["pretty-format", "npm:25.5.0"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:26.0.1", {
           "packageLocation": "./.yarn/cache/jest-diff-npm-26.0.1-ab5a9ede47-3.zip/node_modules/jest-diff/",
           "packageDependencies": [
@@ -6659,6 +6704,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["jest-get-type", [
+        ["npm:25.2.6", {
+          "packageLocation": "./.yarn/cache/jest-get-type-npm-25.2.6-7abd790493-3.zip/node_modules/jest-get-type/",
+          "packageDependencies": [
+            ["jest-get-type", "npm:25.2.6"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:26.0.0", {
           "packageLocation": "./.yarn/cache/jest-get-type-npm-26.0.0-32f433dd67-3.zip/node_modules/jest-get-type/",
           "packageDependencies": [
@@ -7310,6 +7362,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["laxwire", "workspace:."],
             ["@google-cloud/firestore", "npm:3.8.4"],
             ["@slack/bolt", "npm:2.1.1"],
+            ["@types/jest", "npm:26.0.0"],
             ["@types/node", "npm:14.0.11"],
             ["@types/pino", "npm:6.0.1"],
             ["@typescript-eslint/eslint-plugin", "virtual:2cc0e3472e608e45ffa966db18047f66106b8733bd5e144a8be9549702733b5de13dcbf8a00394fe72b79f5f719158cb19dcb4319c545ea5bff708a2bc8af675#npm:3.1.0"],
@@ -9139,6 +9192,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["pretty-format", [
+        ["npm:25.5.0", {
+          "packageLocation": "./.yarn/cache/pretty-format-npm-25.5.0-9def2180a5-3.zip/node_modules/pretty-format/",
+          "packageDependencies": [
+            ["pretty-format", "npm:25.5.0"],
+            ["@jest/types", "npm:25.5.0"],
+            ["ansi-regex", "npm:5.0.0"],
+            ["ansi-styles", "npm:4.2.1"],
+            ["react-is", "npm:16.13.1"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:26.0.1", {
           "packageLocation": "./.yarn/cache/pretty-format-npm-26.0.1-785e8b550c-3.zip/node_modules/pretty-format/",
           "packageDependencies": [
@@ -9227,7 +9291,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ]],
       ["protobufjs", [
         ["npm:6.9.0", {
-          "packageLocation": "./.yarn/cache/protobufjs-npm-6.9.0-569bc719a2-3.zip/node_modules/protobufjs/",
+          "packageLocation": "./.yarn/unplugged/protobufjs-npm-6.9.0-569bc719a2/node_modules/protobufjs/",
           "packageDependencies": [
             ["protobufjs", "npm:6.9.0"],
             ["@protobufjs/aspromise", "npm:1.1.2"],
