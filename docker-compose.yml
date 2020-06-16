@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  laxwire:
+    build:
+      context: .
+    image: "laxwire:${VERSION}"
+    container_name: laxwire
+    ports:
+      - "4390:4390"
